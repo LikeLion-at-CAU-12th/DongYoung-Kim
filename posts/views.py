@@ -23,3 +23,21 @@ def introduction_json(request):
                 }
             ]
         })
+    
+def page_dynamic(request):
+    if request.method == "GET":
+        context = {
+            'me' : {
+                'name' : '김동영',
+                'age' : 24,
+                'major' : 'Software',
+                'github' : 'Temple2001'
+            },
+            'reviewer' : {
+                'name' : '정현수',
+                'age' : 22,
+                'major' : 'Library and Information Science',
+                'github' : 'usernamehs'
+            }
+        }
+        return render(request, 'page.html', context)
