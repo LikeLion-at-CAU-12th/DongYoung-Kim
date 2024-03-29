@@ -8,6 +8,10 @@
 
 ## 과제
 
+- **week4 standard 과제 사진**
+  ![week4-standard-adminPage](images/week4-standard-adminPage.png)
+  ![week4-standard-ERD](images/week4-standard-ERD.png)
+
 - **week3 standard 과제 사진**
   ![week3-standard](images/week3-standard.png)
 
