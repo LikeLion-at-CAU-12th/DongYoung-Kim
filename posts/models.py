@@ -26,3 +26,12 @@ class Comment(BaseModel):
     content = models.TextField(verbose_name='내용')
     writer = models.ForeignKey('accounts.User', on_delete=models.CASCADE)
     post = models.ForeignKey('Post', on_delete=models.CASCADE)
+
+class Hashtag(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(verbose_name='이름', max_length=20)
+
+class Tagging(models.Model):
+    id = models.AutoField(primary_key=True)
+    post = models.ForeignKey('Post', on_delete=models.CASCADE)
+    tag = models.ForeignKey('Hashtag', on_delete=models.CASCADE)
