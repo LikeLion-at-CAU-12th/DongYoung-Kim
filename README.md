@@ -8,11 +8,19 @@
 
 ## 과제
 
-- **week3 standard 과제 사진**
-  ![week3-standard](images/week3-standard.png)
+- **week4 standard 과제 사진**
+  ![week4-standard-adminPage](images/week4-standard-adminPage.png)
+  ![week4-standard-ERD](images/week4-standard-ERD.png)
 
-- **week3 challenge 과제 사진**
-  ![week3-challenge](images/week3-challenge.gif)
+<details>
+  <summary>week3</summary>
+  <div markdown="1">
+    week3 standard 과제 사진
+    <img width="100%" src="images/week3-standard.png" />
+    week3 challenge 과제 사진
+    <img width="100%" src="images/week3-challenge.gif" />
+  </div>
+</details>
 
 <br/>
 
