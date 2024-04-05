@@ -3,6 +3,7 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django.views.decorators.http import require_http_methods
 from posts.models import *
+from datetime import datetime, timedelta
 
 # Create your views here.
 
@@ -51,7 +52,7 @@ def get_post_detail(request,id):
         "id" : post.id,
         "title" : post.title,
         "content" : post.content,
-        "writer" : post.writer,
+        "writer" : post.writer.username,
         "category" : post.category,
     }
 
@@ -60,3 +61,51 @@ def get_post_detail(request,id):
         'message' : '게시글 조회 성공',
         'data' : post_detail_json
     })
+
+@require_http_methods(["GET"])
+def get_comment_all(request):
+    if request.method == "GET":
+        comment_all = Comment.objects.all()
+        comment_json_list = []
+
+        for comment in comment_all:
+            comment_json = {
+                'id': comment.id,
+                'content': comment.content,
+                'writer': comment.writer,
+                'post': comment.post,
+            }
+            comment_json_list.append(comment_json)
+
+        return JsonResponse({
+            'status': 200,
+            'message': '댓글 목록 조회 성공',
+            'data': comment_json_list,
+        })
+
+@require_http_methods(["GET"])
+def get_posts_last_week(request):
+    if request.method == "GET":
+        one_week_ago = datetime.now() - timedelta(days=7)
+        posts_last_week = Post.objects.filter(
+            created_at__gte=one_week_ago
+        ).order_by("-created_at")
+
+        post_json_list = []
+
+        for post in posts_last_week:
+            post_json = {
+                "id" : post.id,
+                "title" : post.title,
+                "content" : post.content,
+                "writer" : post.writer.username,
+                "category" : post.category,
+                "created_at": post.created_at,
+            }
+            post_json_list.append(post_json)
+
+        return JsonResponse({
+            'status': 200,
+            'message': '최근 일주일 동안 작성된 게시글 목록 조회 성공',
+            'data': post_json_list,
+        })
