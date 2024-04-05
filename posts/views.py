@@ -63,17 +63,17 @@ def get_post_detail(request,id):
     })
 
 @require_http_methods(["GET"])
-def get_comment_all(request):
+def get_comments(request, id):
     if request.method == "GET":
-        comment_all = Comment.objects.all()
+        comments_in_post = Comment.objects.filter(post=id)
         comment_json_list = []
 
-        for comment in comment_all:
+        for comment in comments_in_post:
             comment_json = {
                 'id': comment.id,
                 'content': comment.content,
-                'writer': comment.writer,
-                'post': comment.post,
+                'writer': comment.writer.username,
+                'post': comment.post.title,
             }
             comment_json_list.append(comment_json)
 
