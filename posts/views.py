@@ -60,3 +60,20 @@ def get_post_detail(request,id):
         'message' : '게시글 조회 성공',
         'data' : post_detail_json
     })
+
+@require_http_methods(["GET"])
+def get_tag_relationship(request):
+    res = {
+        'status': 200,
+        'mesasge': '게시글-해시태그 관계 조회 성공',
+        'data': {},
+    }
+    taggings = Tagging.objects.all()
+    for tagging in taggings:
+        res['data'][tagging.id] = {
+            'post_id': tagging.post_id,
+            'post 이름': Post.objects.get(id=tagging.post_id).title,
+            'tag_id': tagging.tag_id,
+            'tag 이름': Hashtag.objects.get(id=tagging.tag_id).name,
+        }
+    return JsonResponse(res)
