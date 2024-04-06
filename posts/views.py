@@ -3,6 +3,7 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django.views.decorators.http import require_http_methods
 from posts.models import *
+from datetime import datetime, timedelta
 
 # Create your views here.
 
@@ -51,7 +52,7 @@ def get_post_detail(request,id):
         "id" : post.id,
         "title" : post.title,
         "content" : post.content,
-        "writer" : post.writer,
+        "writer" : post.writer.username,
         "category" : post.category,
     }
 
@@ -77,3 +78,51 @@ def get_tag_relationship(request):
             'tag 이름': Hashtag.objects.get(id=tagging.tag_id).name,
         }
     return JsonResponse(res)
+
+@require_http_methods(["GET"])
+def get_comments(request, id):
+    if request.method == "GET":
+        comments_in_post = Comment.objects.filter(post=id)
+        comment_json_list = []
+
+        for comment in comments_in_post:
+            comment_json = {
+                'id': comment.id,
+                'content': comment.content,
+                'writer': comment.writer.username,
+                'post': comment.post.title,
+            }
+            comment_json_list.append(comment_json)
+
+        return JsonResponse({
+            'status': 200,
+            'message': '댓글 목록 조회 성공',
+            'data': comment_json_list,
+        })
+
+@require_http_methods(["GET"])
+def get_posts_last_week(request):
+    if request.method == "GET":
+        one_week_ago = datetime.now() - timedelta(days=7)
+        posts_last_week = Post.objects.filter(
+            created_at__gte=one_week_ago
+        ).order_by("-created_at")
+
+        post_json_list = []
+
+        for post in posts_last_week:
+            post_json = {
+                "id" : post.id,
+                "title" : post.title,
+                "content" : post.content,
+                "writer" : post.writer.username,
+                "category" : post.category,
+                "created_at": post.created_at,
+            }
+            post_json_list.append(post_json)
+
+        return JsonResponse({
+            'status': 200,
+            'message': '최근 일주일 동안 작성된 게시글 목록 조회 성공',
+            'data': post_json_list,
+        })

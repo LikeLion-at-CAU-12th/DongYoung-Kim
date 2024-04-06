@@ -8,18 +8,24 @@
 
 ## 과제
 
-week4 standard 과제 사진
+week5 standard 과제 사진
+![](images/week5/standard-comment.png)
+![](images/week5/standard-postsLastWeek.png)
 
-<img src="images/week4/standard-ERD.png" />
-<img src="images/week4/standard-adminPage.png" />
-
-week4 challenge 과제 사진
-
-<img src="images/week4/challenge-ERD.png" />
-<img src="images/week4/challenge-1.png" />
-<img src="images/week4/challenge-2.png" />
-<img src="images/week4/challenge-3.png" />
-<img src="images/week4/challenge-4.png" />
+<details>
+  <summary>week4</summary>
+  <div markdown="1">
+    week4 standard 과제 사진
+    <img src="images/week4/standard-adminPage.png" />
+    <img src="images/week4/standard-ERD.png" />
+    week4 challenge 과제 사진
+    <img src="images/week4/challenge-ERD.png" />
+    <img src="images/week4/challenge-1.png" />
+    <img src="images/week4/challenge-2.png" />
+    <img src="images/week4/challenge-3.png" />
+    <img src="images/week4/challenge-4.png" />
+  </div>
+</details>
 
 <details>
   <summary>week3</summary>
