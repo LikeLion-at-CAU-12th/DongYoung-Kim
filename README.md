@@ -9,15 +9,15 @@
 ## 과제
 
 week5 standard 과제 사진
-![](images/week5/week5-standard-comment.png)
-![](images/week5/week5-standard-postsLastWeek.png)
+![](images/week5/standard-comment.png)
+![](images/week5/standard-postsLastWeek.png)
 
 <details>
   <summary>week4</summary>
   <div markdown="1">
     week4 standard 과제 사진
-    <img src="images/week4/week4-standard-adminPage.png" />
-    <img src="images/week4/week4-standard-ERD.png" />
+    <img src="images/week4/standard-adminPage.png" />
+    <img src="images/week4/standard-ERD.png" />
     week4 challenge 과제 사진
     
   </div>
@@ -27,9 +27,9 @@ week5 standard 과제 사진
   <summary>week3</summary>
   <div markdown="1">
     week3 standard 과제 사진
-    <img src="images/week3/week3-standard.png" />
+    <img src="images/week3/standard.png" />
     week3 challenge 과제 사진
-    <img src="images/week3/week3-challenge.gif" />
+    <img src="images/week3/challenge.gif" />
   </div>
 </details>
 
