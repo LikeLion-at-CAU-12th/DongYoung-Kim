@@ -48,19 +48,19 @@ def page_dynamic(request):
 @require_http_methods(["GET"])
 def get_post_detail(request,id):
     post = get_object_or_404(Post, pk=id)
+    image_models = Image.objects.filter(post=id)
+    image_list = {image_model.id:image_model.img.url for image_model in image_models}
+
     post_detail_json = {
-        "id" : post.id,
-        "title" : post.title,
-        "content" : post.content,
-        "writer" : post.writer.username,
-        "category" : post.category,
+        "id": post.id,
+        "title": post.title,
+        "content": post.content,
+        "writer": post.writer.username,
+        "category": post.category,
+        "images": image_list,
     }
 
-    return JsonResponse({
-        'status' : 200,
-        'message' : '게시글 조회 성공',
-        'data' : post_detail_json
-    })
+    return render(request, 'post.html', post_detail_json)
 
 @require_http_methods(["GET"])
 def get_tag_relationship(request):
