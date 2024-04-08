@@ -3,7 +3,8 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django.views.decorators.http import require_http_methods
 from posts.models import *
-from datetime import datetime, timedelta
+from django.utils import timezone
+from datetime import timedelta
 
 # Create your views here.
 
@@ -103,7 +104,7 @@ def get_comments(request, id):
 @require_http_methods(["GET"])
 def get_posts_last_week(request):
     if request.method == "GET":
-        one_week_ago = datetime.now() - timedelta(days=7)
+        one_week_ago = timezone.now() - timedelta(days=7)
         posts_last_week = Post.objects.filter(
             created_at__gte=one_week_ago
         ).order_by("-created_at")
