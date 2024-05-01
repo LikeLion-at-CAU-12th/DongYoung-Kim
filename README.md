@@ -22,11 +22,9 @@ week6 standard 과제 사진
     <img src="images/week5/standard-comment.png" />
     <img src="images/week5/standard-postsLastWeek.png" />
     week5 challenge 과제 사진
+    <img src="images/week5/challenge.gif" />
   </div>
 </details>
-
-week5 challenge 과제 사진
-![](images/week5/challenge.gif)
 
 <details>
   <summary>week4</summary>
