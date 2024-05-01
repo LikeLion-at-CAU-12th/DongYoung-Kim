@@ -21,6 +21,11 @@ class Post(BaseModel):
     writer = models.ForeignKey('accounts.User', on_delete=models.CASCADE)
     category = models.CharField(choices=CHOICES, max_length=20)
 
+class Image(models.Model):
+    id = models.AutoField(primary_key=True)
+    img = models.ImageField(upload_to="test")
+    post = models.ForeignKey('Post', on_delete=models.CASCADE)
+
 class Comment(BaseModel):
     id = models.AutoField(primary_key=True)
     content = models.TextField(verbose_name='내용')
