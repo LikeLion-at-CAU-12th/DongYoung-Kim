@@ -8,12 +8,20 @@
 
 ## 과제
 
-week6 standard 과제 사진
-![](images/week6/standard-introduction.png)
-![](images/week6/standard-posts-last-week.png)
-![](images/week6/standard-page.png)
-![](images/week6/standard-serverLog.png)
-설명 : AWS 과금 이슈로 개인 ubuntu 서버에서 과제 수행함
+week7 standard 과제 사진
+![](images/week7/standard.png)
+
+<details>
+  <summary>week5</summary>
+  <div markdown="1">
+    week6 standard 과제 사진
+    <img src="images/week6/standard-introduction.png" />
+    <img src="images/week6/standard-posts-last-week.png" />
+    <img src="images/week6/standard-page.png" />
+    <img src="images/week6/standard-serverLog.png" />
+    설명 : AWS 과금 이슈로 개인 ubuntu 서버에서 과제 수행함
+  </div>
+</details>
 
 <details>
   <summary>week5</summary>

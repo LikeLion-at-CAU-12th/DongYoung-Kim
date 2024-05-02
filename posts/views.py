@@ -6,6 +6,10 @@ from posts.models import *
 from django.utils import timezone
 from datetime import timedelta
 
+from .serializers import CommentSerializer
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
 # Create your views here.
 
 def introduction_json(request):
@@ -80,26 +84,33 @@ def get_tag_relationship(request):
         }
     return JsonResponse(res)
 
-@require_http_methods(["GET"])
-def get_comments(request, id):
-    if request.method == "GET":
-        comments_in_post = Comment.objects.filter(post=id)
-        comment_json_list = []
+# @require_http_methods(["GET"])
+# def get_comments(request, id):
+#     if request.method == "GET":
+#         comments_in_post = Comment.objects.filter(post=id)
+#         comment_json_list = []
+#
+#         for comment in comments_in_post:
+#             comment_json = {
+#                 'id': comment.id,
+#                 'content': comment.content,
+#                 'writer': comment.writer.username,
+#                 'post': comment.post.title,
+#             }
+#             comment_json_list.append(comment_json)
+#
+#         return JsonResponse({
+#             'status': 200,
+#             'message': '댓글 목록 조회 성공',
+#             'data': comment_json_list,
+#         })
 
-        for comment in comments_in_post:
-            comment_json = {
-                'id': comment.id,
-                'content': comment.content,
-                'writer': comment.writer.username,
-                'post': comment.post.title,
-            }
-            comment_json_list.append(comment_json)
+class CommentList(APIView):
+    def get(self, request, id):
+        comments = Comment.objects.filter(post=id)
+        serializer = CommentSerializer(comments, many=True)
+        return Response(serializer.data)
 
-        return JsonResponse({
-            'status': 200,
-            'message': '댓글 목록 조회 성공',
-            'data': comment_json_list,
-        })
 
 @require_http_methods(["GET"])
 def get_posts_last_week(request):
