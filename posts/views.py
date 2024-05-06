@@ -72,7 +72,7 @@ class PostDetail(generics.GenericAPIView):
     serializer_class = PostSerializer
 
     def get(self, request, id):
-        post = get_object_or_404(id=id)
+        post = get_object_or_404(Post, id=id)
         serializer = self.get_serializer(post)
         return Response(serializer.data)
 
