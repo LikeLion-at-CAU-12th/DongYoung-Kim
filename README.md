@@ -9,7 +9,15 @@
 ## 과제
 
 week7 standard 과제 사진
+
 ![](images/week7/standard.png)
+
+week7 challenge 과제 사진
+
+![challenge-postdetail.png](images/week7/challenge-postdetail.png)
+![challenge-postlist1.png](images/week7/challenge-postlist1.png)
+![challenge-postlist2.png](images/week7/challenge-postlist2.png)
+![challenge-swagger.png](images/week7/challenge-swagger.png)
 
 <details>
   <summary>week5</summary>
