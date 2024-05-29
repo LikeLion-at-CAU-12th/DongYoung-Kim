@@ -8,19 +8,33 @@
 
 ## 과제
 
-week7 standard 과제 사진
+week8 standard 과제 사진
 
-![](images/week7/standard.png)
+key 체크
 
-week7 challenge 과제 사진
+![standard-secret-key-fail.png](images/week8/standard-secret-key-fail.png)
+![standard-secret-key-success.png](images/week8/standard-secret-key-success.png)
 
-![challenge-postdetail.png](images/week7/challenge-postdetail.png)
-![challenge-postlist1.png](images/week7/challenge-postlist1.png)
-![challenge-postlist2.png](images/week7/challenge-postlist2.png)
-![challenge-swagger.png](images/week7/challenge-swagger.png)
+작성자 체크
+
+![standard-owner-check-fail.png](images/week8/standard-owner-check-fail.png)
+![standard-owner-check-success.png](images/week8/standard-owner-check-success.png)
 
 <details>
-  <summary>week5</summary>
+  <summary>week7</summary>
+  <div markdown="1">
+    week7 standard 과제 사진
+    <img src="images/week7/standard.png" />
+    week7 challenge 과제 사진
+    <img src="images/week7/challenge-postdetail.png" />
+    <img src="images/week7/challenge-postlist1.png" />
+    <img src="images/week7/challenge-postlist2.png" />
+    <img src="images/week7/challenge-swagger.png" />
+  </div>
+</details>
+
+<details>
+  <summary>week6</summary>
   <div markdown="1">
     week6 standard 과제 사진
     <img src="images/week6/standard-introduction.png" />
