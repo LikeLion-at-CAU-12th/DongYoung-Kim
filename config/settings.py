@@ -67,7 +67,12 @@ THIRD_PARTY_APPS = [
     'corsheaders',
     'rest_framework',
     'rest_framework_simplejwt',
-    'drf_yasg'
+    'drf_yasg',
+
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.google",
 ]
 
 
@@ -84,6 +89,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -191,3 +197,7 @@ SIMPLE_JWT = {
     'BLACKLIST_AFTER_ROTATION': False,
     'TOKEN_USER_CLASS': 'accounts.User',
 }
+
+ACCOUNT_EMAIL_REQUIRED = True            # email 필드 사용 o
+ACCOUNT_USERNAME_REQUIRED = True         # username 필드 사용 o
+ACCOUNT_AUTHENTICATION_METHOD = "email"
